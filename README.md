@@ -3,9 +3,9 @@ Walk through on all-things spatial aggregations. The main focus is aggregating c
 
 ____
 
-This tutorial focuses on these differences:
+This tutorial focuses on:
 
-**Frequently asked questions**
+1. **Frequently asked questions**
 
 * What is the difference between gis vector data and rasters?
 * What is the difference between overlay vs rasterize?
@@ -14,7 +14,11 @@ This tutorial focuses on these differences:
 * What are computationally efficient options for spatial aggregations?
 * How can I perform discrete variable aggregations?
 
-**Example scripts and end-to-end pipelines for spatial aggregations**
+2. **Example scripts and end-to-end pipelines for spatial aggregations**
+
+* Python example script for spatial aggregations using rasterization (`rasterstats` package)
+* Python example script for discrete variable aggregations: climate types on the USA
+
 
 _____
 
