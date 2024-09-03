@@ -18,6 +18,7 @@ This tutorial focuses on:
 
 * Python example script for spatial aggregations using rasterization (`rasterstats` package)
 * Python example script for discrete variable aggregations: climate types on the USA
+* Blazing fast end-to-end pipelines for spatial aggregations
 
 
 _____
