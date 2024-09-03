@@ -1,6 +1,8 @@
 # spatial_aggregations_tutorial
 Walk through on all-things spatial aggregations. The main focus is aggregating climate/exposure variables over (raster) grids into (GIS vector) polygons. 
 
+____
+
 This tutorial focuses on these differences:
 
 **Frequently asked questions**
@@ -14,6 +16,7 @@ This tutorial focuses on these differences:
 
 **Example scripts and end-to-end pipelines for spatial aggregations**
 
+_____
 
 Resources: 
 * vector vs raster
