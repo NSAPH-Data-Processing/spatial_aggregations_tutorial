@@ -41,6 +41,6 @@ Resources:
   - https://saylordotorg.github.io/text_essentials-of-geographic-information-systems/s12-01-basic-geoprocessing-with-raste.html
   - http://www.gitta.info/Suitability/en/html/unit_BoolOverlay.html
 * downscaling
+  - https://www.researchgate.net/publication/335651129_An_Overview_of_Theoretical_and_Practical_Issues_in_Spatial_Downscaling_of_Coarse_Resolution_Satellite-derived_Products#pf2
  
- - https://www.researchgate.net/publication/335651129_An_Overview_of_Theoretical_and_Practical_Issues_in_Spatial_Downscaling_of_Coarse_Resolution_Satellite-derived_Products#pf2
-  -https://www.researchgate.net/publication/335651129_An_Overview_of_Theoretical_and_Practical_Issues_in_Spatial_Downscaling_of_Coarse_Resolution_Satellite-derived_Products#pf2
+Additional GIS resources: https://mapping.share.library.harvard.edu/
