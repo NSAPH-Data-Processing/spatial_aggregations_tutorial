@@ -1,3 +1,6 @@
+![image](https://github.com/user-attachments/assets/32d68b98-6b60-4633-8bcf-bb255dd628b0)
+
+
 # spatial_aggregations_tutorial
 Walk through on all-things spatial aggregations. The main focus is aggregating climate/exposure variables over (raster) grids into (GIS vector) polygons. 
 
