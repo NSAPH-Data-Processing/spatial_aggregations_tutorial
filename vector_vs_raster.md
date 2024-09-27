@@ -23,16 +23,16 @@ Common File Formats:
 
 ## What is Raster Data?
 
-Raster data represents the world as a grid of cells or pixels, where each pixel contains a value representing information, such as temperature, elevation, or land cover. Each cell has a specific resolution that determines how much detail is captured.
+Raster data represents the world as a grid of cells or pixels, where each row-column pair or pixel contains a value representing information, such as temperature, elevation, or land cover. Arrays can be both two-dimensional arrays or higher dimensional, representing multi-band rasters. GIS raster formats typically store the resolution and the projection system as metadata in the same file, while general image or array formats don't have this property. 
 
 Example:
 
 Satellite imagery, digital elevation models (DEMs), and land cover maps are common examples of raster data. Each pixel in the image holds a value, such as the elevation at that point or the type of land cover.
 
 Common File Formats:
-* GeoTIFF (.tiff)
-* JPEG (.jpg)
-* PNG (.png)
+* GeoTIFF (.tiff) - It adds geospatial metadata
+* NetCDF (.nc) - It doesn't contain geospatial metadata, but stores higher dimensional arrays
+* GeoPackage (.gpkg) - It can store both raster and vector data in the same file 
 
 ### Discrete Rasters
 These rasters describe distinct categories or themes, like type of land use. Thematic classes should be easily distinguishable and beginning and end should be discretely defined.
