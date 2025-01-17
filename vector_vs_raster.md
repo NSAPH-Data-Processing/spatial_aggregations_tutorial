@@ -2,28 +2,28 @@
 
 ## Overview
 
-In Geographic Information Systems (GIS), vector and raster data formats represent the primary ways to visualize and analyze spatial data. These formats differ in how they model the world, making each suitable for different applications. In this tutorial, we’ll explain the key differences, examples, and when to use each.
+In Geographic Information Systems (GIS), vector and raster data formats represent the primary ways to visualize and analyze spatial data. These formats differ in how they model the world, making each suitable for different applications. In this tutorial, we’ll explain the key differences, give some examples, and discuss when to use each.
 
 ## What is Vector Data?
 
 Vector data is used to represent features that have discrete boundaries and can be represented by points, lines, or polygons. This data format is composed of geometries with specific coordinates.
 
-* Points – Represent specific locations (e.g., cities on a map).
-* Lines – Represent linear features (e.g., roads, rivers).
-* Polygons – Represent area features (e.g., lakes, country boundaries).
+* Points – represent specific locations (e.g., cities on a map).
+* Lines – represent linear features (e.g., roads, rivers).
+* Polygons – represent area features (e.g., lakes, country boundaries).
 
-Example:
+### Examples:
 
 In a vector format, a city can be represented as a point with X and Y coordinates, for example at a global scale when features like city boundaries are too small to be seen. A river can be represented as a series of lines connecting coordinates, and a forest as a polygon defined by its boundary coordinates.
 
-Common File Formats:
+### Common File Formats:
 * Shapefiles (.shp)
 * GeoJSON (.geojson)
 * KML (.kml)
 
 ## What is Raster Data?
 
-Raster data represents the world as a grid of cells or pixels, where each row-column pair or pixel contains a value representing information, such as temperature, elevation, or land cover. Arrays can be both two-dimensional arrays or higher dimensional, representing multi-band rasters. GIS raster formats typically store the resolution and the projection system as metadata in the same file, while general image or array formats don't have this property. 
+Raster data represents the world as a grid of cells or pixels, where each row-column pair or pixel contains a value representing information, such as temperature, elevation, or land cover. Arrays can be two-dimensional arrays or higher dimensional, representing multi-band rasters. GIS raster formats typically store the resolution and the projection system as metadata in the same file, while general image or array formats don't have this property. 
 
 Example:
 
