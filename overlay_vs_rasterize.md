@@ -16,6 +16,10 @@ Intersection: Retains features common to both layers.
 * Difference: Retains features from one layer that do not overlap the other.
 * Symmetrical Difference: Features that occur in either layer but not in both.
 
+A useful visualization of overlay operations is shown in the following diagram from [Bplewe - Own work, CC BY-SA 4.0](https://commons.wikimedia.org/w/index.php?curid=111799357).
+
+![Overlay operations](images/Vector_Overlay_Operators.png)
+
 ### Use Case Example:
 
 By overlaying data layers like elevation, slope angle, slope type, flow accumulation, geology, and vegetation, we can develop a landslide susceptibility map. The following example is from [Kohno, Masanori & Higuchi, Yuki. (2023)](https://www.researchgate.net/publication/367345548_Landslide_Susceptibility_Assessment_in_the_Japanese_Archipelago_Based_on_a_Landslide_Distribution_Map).
