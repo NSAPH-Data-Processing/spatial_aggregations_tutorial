@@ -37,6 +37,8 @@ That being said, SVGs have numerous drawbacks:
 6. **Performance Issues in Web Applications**:
    * Vector files like SVGs can introduce performance challenges in web environments due to their handling as HTML-like elements rather than traditional image files[^11].
 
+For more information on vectors vs. rasters, see [this post](https://github.com/NSAPH-Data-Processing/spatial_aggregations_tutorial/blob/main/vector_vs_raster.md)!
+
 # Ok I think I’m convinced why I should rasterize, but what is rasterization really?
 
 Put simply, rasterization is the process of turning the shapes or objects (like triangles or polygons) from an image into a grid of tiny squares called pixels. Imagine drawing a triangle on graph paper: rasterization figures out which squares the triangle covers and fills them with color. This makes it possible to display the triangle as an image on a screen or use it in analysis.
