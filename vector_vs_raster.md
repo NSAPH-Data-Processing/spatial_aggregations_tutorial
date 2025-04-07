@@ -99,3 +99,20 @@ In many cases, GIS analysis involves combining both raster and vector data to ga
 ## Conclusion
 
 Both vector and raster data are essential in GIS, each with its own strengths and weaknesses. Understanding when and how to use these formats will help you better manage and analyze geographic information in your projects.
+
+> # What are vector images?
+> A vector image is a type of digital graphic created using mathematical formulas to define geometric shapes, lines, curves, and colors. An example of a vector image is an SVG or PDF. Unlike raster images, which are composed of pixels, vector images rely on paths and control points to represent visual elements, meaning that the data embedded in a file of this type are geometric instructions. These instructions specify the position, size, shape, and other attributes of these elements within a Cartesian coordinate system, allowing the image to be rendered precisely and scaled without loss of quality. This is why SVG plots are appear super clear, and you can zoom into them almost infinitely without them getting blurry or blocky.
+> ## Drawbacks of Vector Images
+> 1. **Limited Detail for Complex Images**: Vector graphics are not ideal for highly detailed or photorealistic images, as they rely on geometric shapes rather than individual pixels. This makes them unsuitable for representing textures, gradients, or intricate photographic details[^7][^8][^9].
+> 2. **Time-Consuming Creation**: Designing vector images can be more time-intensive, especially for complex illustrations, requiring precision and expertise with specialized software[^7][^8].
+> 3. **Skill and Software Requirements**: Working with vectors often demands proficiency in vector-based design tools like Adobe Illustrator. Additionally, raster-based programs cannot effectively handle vector files, leading to compatibility issues[^8][^10].
+> 4. **Conversion Challenges**: While converting vectors to rasters is straightforward, the reverse process (raster to vector) is computationally complex and less accurate[^8][^10].
+> 5. **Compatibility Limitations**: Some devices, web browsers, or software may not fully support vector formats, requiring converting vectors to rasters for proper display or functionality[^7][^11].
+> 6. **Performance Issues in Web Applications**: Vector files like SVGs can introduce performance challenges in web environments due to their handling as HTML-like elements rather than traditional image files[^11].
+
+# Footnotes
+- [^7]: [Advantages And Disadvantages Of Vector Images - Zdigitizing](https://zdigitizing.com/advantages-and-disadvantages-of-vector-images/)
+- [^8]: [Vector files: How to create, edit and open them | Adobe](https://www.adobe.com/creativecloud/file-types/image/vector.html)
+- [^9]: [What are the disadvantages of vector images? - Answers](https://www.answers.com/physics/What_are_the_disadvantages_of_vector_images)
+- [^10]: [Vector vs Raster Graphics – Kevuru Games](https://kevurugames.com/blog/vector-vs-raster-graphics-the-complete-guide-to-pros-cons-and-applications/)
+- [^11]: [Are there downsides to using vector images? - Reddit](https://www.reddit.com/r/Wordpress/comments/1116bll/are_there_downsides_to_using_vector_images/)

@@ -26,6 +26,25 @@ This tutorial focuses on:
 
 _____
 
+### Main Applications of Spatial Aggregations in Environmental Health Data Science
+
+1. **Environmental Monitoring and Modeling**:
+   * Spatial aggregations enables the integration of satellite imagery with vector data, such as habitat boundaries, to monitor ecosystem changes, deforestation, and wildfire spread[^1][^2].
+   * It supports modeling continuous environmental phenomena like air pollution, temperature, and precipitation across landscapes[^1][^3].
+2. **Exposure Assessment, Urban Planning and Public Health**
+   * Spatial aggregations of climate and pollution data are used to estimate individual or population-level exposure to environmental hazards (e.g., heat waves or air pollutants) by overlaying grids with demographic polygons[^4][^5].
+4. **Disaster Preparedness and Response**:
+   * Spatial aggregations are crucial for tracking natural disasters like floods or hurricanes and assessing their health impacts by combining raster hazard maps with population density polygons[^6][^2].
+5. **Agricultural and Food Security Studies**:
+   * Spatial aggregations of soil temperature, crop health, and irrigation data help assess food security risks and optimize agricultural practices to mitigate environmental health impacts like malnutrition[^6].
+
+- [^1]: [Raster vs Vector: Which is Best for Your GIS Needs? - RisingWave](https://risingwave.com/blog/raster-vs-vector-which-is-best-for-your-gis-needs/)
+- [^2]: [Raster vs. Vector Data in GIS | Ankur S. | LinkedIn](https://www.linkedin.com/posts/ankur-s-803497126_gis-geospatial-datascience-activity-7211352628662853634-UrJ4)
+- [^3]: [Introduction to image and raster data—ArcGIS Pro](https://pro.arcgis.com/en/pro-app/latest/help/data/imagery/introduction-to-raster-data.htm)
+- [^4]: [Data Science in Environmental Health Research - PubMed Central](https://pmc.ncbi.nlm.nih.gov/articles/PMC6853613/)
+- [^5]: [Data Science in Environmental Health Research - PubMed](https://pubmed.ncbi.nlm.nih.gov/31723546/)
+- [^6]: [Uncovering the Value of Raster Data Applications - Foursquare](https://location.foursquare.com/resources/blog/use-cases/uncovering-the-value-of-raster-data-applications-for-environmental-industries/)
+
 Resources: 
 * vector vs raster
   - https://community.alteryx.com/t5/Data-Science/Vector-and-Raster-A-Tale-of-Two-Spatial-Data-Types/ba-p/336141
