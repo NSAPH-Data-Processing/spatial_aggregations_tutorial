@@ -2,65 +2,57 @@
 
 Rasterization is the process of converting vector data (such as shapes, polygons, or lines defined by mathematical formulas) into raster data, which consists of a grid of cells or pixels. Rasterization is one of two kinds of GIS (geographic information systems) data conversions (the other being _vectorization_).
 
-### Main Applications of Rasterization in Environmental Health Data Science
-
-1. **Environmental Monitoring and Modeling**:
-   * Rasterization enables the integration of satellite imagery with vector data, such as habitat boundaries, to monitor ecosystem changes, deforestation, and wildfire spread[^1][^2].
-   * It supports modeling continuous environmental phenomena like air pollution, temperature, and precipitation across landscapes[^1][^3].
-2. **Exposure Assessment**:
-   * Rasterized climate and pollution data are used to estimate individual or population-level exposure to environmental hazards (e.g., heat waves or air pollutants) by overlaying raster grids with demographic polygons[^4][^5].
-3. **Urban Planning and Public Health**:
-   * By converting land-use data into raster format, researchers can calculate runoff coefficients, assess habitat connectivity, and evaluate urban heat islands, aiding sustainable urban development[^1].
-4. **Disaster Preparedness and Response**:
-   * Raster data is crucial for tracking natural disasters like floods or hurricanes and assessing their health impacts by combining raster hazard maps with population density polygons[^6][^2].
-5. **Agricultural and Food Security Studies**:
-   * Rasterized soil temperature, crop health, and irrigation data help assess food security risks and optimize agricultural practices to mitigate environmental health impacts like malnutrition[^6].
-
-# Wait, vectorization…?
-
-A vector image is a type of digital graphic created using mathematical formulas to define geometric shapes, lines, curves, and colors. An example of a vector image is an SVG or PDF. Unlike raster images, which are composed of pixels, vector images rely on paths and control points to represent visual elements, meaning that the data embedded in a file of this type are geometric instructions. These instructions specify the position, size, shape, and other attributes of these elements within a Cartesian coordinate system, allowing the image to be rendered precisely and scaled without loss of quality. This is why SVG plots are appear super clear, and you can zoom into them almost infinitely without them getting blurry or blocky.
-
-That being said, SVGs have numerous drawbacks:
-
-### Drawbacks of Vector Images
-
-1. **Limited Detail for Complex Images**:
-   * Vector graphics are not ideal for highly detailed or photorealistic images, as they rely on geometric shapes rather than individual pixels. This makes them unsuitable for representing textures, gradients, or intricate photographic details[^7][^8][^9].
-2. **Time-Consuming Creation**:
-   * Designing vector images can be more time-intensive, especially for complex illustrations, requiring precision and expertise with specialized software[^7][^8].
-3. **Skill and Software Requirements**:
-   * Working with vectors often demands proficiency in vector-based design tools like Adobe Illustrator. Additionally, raster-based programs cannot effectively handle vector files, leading to compatibility issues[^8][^10].
-4. **Conversion Challenges**:
-   * While converting vectors to rasters is straightforward, the reverse process (raster to vector) is computationally complex and less accurate[^8][^10].
-5. **Compatibility Limitations**:
-   * Some devices, web browsers, or software may not fully support vector formats, requiring rasterization for proper display or functionality[^7][^11].
-6. **Performance Issues in Web Applications**:
-   * Vector files like SVGs can introduce performance challenges in web environments due to their handling as HTML-like elements rather than traditional image files[^11].
-
-For more information on vectors vs. rasters, see [this post](https://github.com/NSAPH-Data-Processing/spatial_aggregations_tutorial/blob/main/vector_vs_raster.md)!
-
-# Ok I think I’m convinced why I should rasterize, but what is rasterization really?
-
 Put simply, rasterization is the process of turning the shapes or objects (like triangles or polygons) from an image into a grid of tiny squares called pixels. Imagine drawing a triangle on graph paper: rasterization figures out which squares the triangle covers and fills them with color. This makes it possible to display the triangle as an image on a screen or use it in analysis.
 
 A good video visualizing this is here: [DATA CONVERSION IN GIS- RASTERIZATION & VECTORIZATION](https://www.youtube.com/watch?v=8aU031e1KiY)
 
-# I see, so what are the common strategies to actually _do_ rasterization?
+# So why should I care about rasterization?
+Rasterization is commonly used in GIS applications because it allows for the integration of vector data with raster data, enabling a wide range of spatial analyses:
+* **Analysis** Raster data is often easier to work with for certain types of calculations, such as overlay analysis, interpolation, and modeling continuous phenomena (like temperature or pollution levels). 
+* **Visualization** Rasterization also allows for the visualization of complex vector data in a format that can be easily interpreted and analyzed.
+* **Computationla efficiency** Raster data is often more efficient for large datasets, as it can be processed in parallel and requires less memory than vector data.
+* **Spatial aggregations** It is and intermediate step that allows for spatial aggregation of vector data, which is essential for environmental health research and other applications where understanding spatial patterns is crucial.
 
-### Common Rasterization Strategies in Environmental Health Data Science
+For more information on vectors vs. rasters, see [this post](https://github.com/NSAPH-Data-Processing/spatial_aggregations_tutorial/blob/main/vector_vs_raster.md)!
 
-1. **Grid-Based Rasterization**:
-   * Divides the study area into a uniform grid of cells, assigning values based on the presence or attributes of vector features within each cell. This is widely used for environmental exposure modeling and landscape metrics[^13][^15].
-2. **Proximity-Based Rasterization**:
-   * Converts vector data into rasters by calculating distances from features (e.g., pollution sources, rivers) and assigning values based on proximity. This is useful for exposure assessments and susceptibility mapping[^20].
-3. **Weighted Aggregation**:
-   * Rasterizes vector data by assigning weights to features (e.g., land use types or pollution levels) and aggregating them into raster cells. This supports risk stratification and environmental health evaluations[^18][^19].
-4. **Interpolation-Based Rasterization**:
-   * Uses interpolation methods to convert sparse vector points (e.g., monitoring stations) into continuous raster surfaces, such as air quality or temperature maps[^15][^20].
-5. **Multi-Layer Integration**:
-   * Combines multiple rasterized datasets (e.g., climate, socioeconomic, and pollution layers) to model complex environmental health interactions[^15][^17].
+# Wait, vectorization…?
 
-These strategies enable efficient spatial analysis and integration of diverse environmental health datasets.
+Vectorization which consists of converting raster data (like images or grids) into vector data (like points, lines, or polygons). 
+
+Vector data is more precise and can represent complex shapes, while raster data is simpler and better suited for continuous data (like temperature or elevation). Nonetheless, in general, conversion from vector to raster is more common than the reverse, and is computationally complex and less accurate 
+
+## Rasterization Approaches
+
+Assigning a cell grid to a polygon is basically a cookie cutter operation, where the cell coordinates that overlap with a polygon are identified.
+
+While straightforward, there are some small differences in the specific approach used, leading to different outcomes. Mainly two different approaches to consider:
+
+* **All touched approach**
+   - Assigns the value of the polygon to all cells that are touched by the polygon, even if only a small part of the cell is covered.
+   - This approach is useful when you want to ensure that all areas within the polygon are represented in the raster, even if they only partially overlap with the cells.
+* **Intersection approach**
+   - Assigns the value of the polygon to only those cells that are fully contained within the polygon.
+   - This approach is useful when you want to ensure that only the areas that are completely covered by the polygon are represented in the raster.
+   - This can lead to missing values in the raster if the polygon does not fully cover any cells.
+* **Cell center approach**
+   - Assigns the value of the polygon to only those cells whose center point is within the polygon.
+   - This approach is useful when you want to ensure that only the areas whose center falls in the polygon are represented in the raster.
+   - This can lead to missing values in the raster if the polygon does not fully cover center cells.
+
+### Pros of All Touched
+
+* More inclusive: Useful when you don’t want to miss anything — e.g., when calculating population exposure or coverage.
+
+* Better for aggregating data: Reduces the chance of underestimating areas that barely touch a polygon (like census tracts or ZIP codes).
+
+### Cons of All Touched
+
+* May overestimate area: Because it includes partially touched cells, the polygon can appear larger in the raster than it actually is.
+
+* Lower spatial precision: Especially at coarser resolutions, this can introduce more noise.
+
+> **Example Use Case** In environmental health, where you want to capture all areas that may be influenced by a pollution source, all touched is often preferred — better to slightly overestimate exposure than to miss out on parts of a population.
+
 
 ## Python Implementation
 
@@ -115,18 +107,17 @@ r2 <- rasterize(xy, r, fun=function(x,...)length(x))
 plot(r1)
 plot(r2)
 ```
-# Footnotes
-- [^1]: [Raster vs Vector: Which is Best for Your GIS Needs? - RisingWave](https://risingwave.com/blog/raster-vs-vector-which-is-best-for-your-gis-needs/)
-- [^2]: [Raster vs. Vector Data in GIS | Ankur S. | LinkedIn](https://www.linkedin.com/posts/ankur-s-803497126_gis-geospatial-datascience-activity-7211352628662853634-UrJ4)
-- [^3]: [Introduction to image and raster data—ArcGIS Pro](https://pro.arcgis.com/en/pro-app/latest/help/data/imagery/introduction-to-raster-data.htm)
-- [^4]: [Data Science in Environmental Health Research - PubMed Central](https://pmc.ncbi.nlm.nih.gov/articles/PMC6853613/)
-- [^5]: [Data Science in Environmental Health Research - PubMed](https://pubmed.ncbi.nlm.nih.gov/31723546/)
-- [^6]: [Uncovering the Value of Raster Data Applications - Foursquare](https://location.foursquare.com/resources/blog/use-cases/uncovering-the-value-of-raster-data-applications-for-environmental-industries/)
-- [^7]: [Advantages And Disadvantages Of Vector Images - Zdigitizing](https://zdigitizing.com/advantages-and-disadvantages-of-vector-images/)
-- [^8]: [Vector files: How to create, edit and open them | Adobe](https://www.adobe.com/creativecloud/file-types/image/vector.html)
-- [^9]: [What are the disadvantages of vector images? - Answers](https://www.answers.com/physics/What_are_the_disadvantages_of_vector_images)
-- [^10]: [Vector vs Raster Graphics – Kevuru Games](https://kevurugames.com/blog/vector-vs-raster-graphics-the-complete-guide-to-pros-cons-and-applications/)
-- [^11]: [Are there downsides to using vector images? - Reddit](https://www.reddit.com/r/Wordpress/comments/1116bll/are_there_downsides_to_using_vector_images/)
+
+> # Rasterization Strategies
+> In addition to the basic rasterization methods, there are several advanced strategies for rasterizing vector data, each with its own strengths and applications in environmental health research. Here are some of the most common strategies:
+>1. **Basic Grid-Based Rasterization**: Divides the study area into a uniform grid of cells, assigning values based on the presence or attributes of vector features within each cell. This is widely used for environmental exposure modeling and landscape metrics[^13][^15].
+> 2. **Proximity-Based Rasterization**: Converts vector data into rasters by calculating distances from features (e.g., pollution sources, rivers) and assigning values based on proximity. This is useful for exposure assessments and susceptibility mapping[^20].
+> 3. **Weighted Aggregation**: Rasterizes vector data by assigning weights to features (e.g., land use types or pollution levels) and aggregating them into raster cells. This supports risk stratification and environmental health evaluations[^18][^19].
+> 4. **Interpolation-Based Rasterization**: Uses interpolation methods to convert sparse vector points (e.g., monitoring stations) into continuous raster surfaces, such as air quality or temperature maps[^15][^20].
+> 5. **Multi-Layer Integration**: Combines multiple rasterized datasets (e.g., climate, socioeconomic, and pollution layers) to model complex environmental health interactions[^15][^17].
+> 6. **Machine Learning Approaches**: Employs machine learning algorithms to predict raster values based on vector features and other covariates, enhancing exposure assessments and risk modeling[^15][^19].
+> 7. **Statistical Rasterization**: Applies statistical methods to rasterize vector data, enabling the estimation of uncertainty and variability in environmental health assessments. It can incorporate time as a variable in rasterization, allowing for dynamic modeling of environmental changes and health impacts over time
+
 - [^13]: [A Comparison of Vector and Raster GIS Methods - USDA](https://research.fs.usda.gov/treesearch/6065)
 - [^15]: [A review of geospatial exposure models - Nature](https://www.nature.com/articles/s41370-024-00712-8)
 - [^17]: [Children's Environmental Health Indicators - Vital Strategies](https://www.vitalstrategies.org/childrens-environmental-health-indicators/)
